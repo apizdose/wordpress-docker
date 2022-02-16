@@ -7,4 +7,9 @@ cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root
 # Rename host
 sed -i 's/https:\/\/olddomain/https:\/\/newdomain/g' backup.sql
 
+#Fix ssl errors
 
+echo "define('FORCE_SSL_ADMIN', true);
+if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+	$_SERVER['HTTPS'] = 'on';
+}" >> /wordpress/wp-config.php
