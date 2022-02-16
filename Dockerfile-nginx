@@ -1,7 +1,7 @@
 FROM nginx:latest
 COPY   default.conf /etc/nginx/conf.d/default.conf
-COPY   apache-selfsigned.key /etc/ssl/private/apache-selfsigned.key
-COPY   apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
+COPY   nginx-selfsigned.key /etc/ssl/private/nginx-selfsigned.key
+COPY   nginx-selfsigned.crt /etc/ssl/certs/nginx-selfsigned.crt
 VOLUME /var/log/nginx/log/
 EXPOSE 443
 
